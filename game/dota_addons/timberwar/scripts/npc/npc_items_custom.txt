@@ -1,0 +1,223 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// custom eul
+	//=================================================================================================================
+	"item_cyclone_custom"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"100"
+		"BaseClass"						"item_cyclone"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"FightRecapLevel"				"1"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"4000"
+		"AbilityCastPoint"				"0.0"
+
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"12.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"ItemCost"						"800"
+		"ItemShopTags"					"int;regen_mana;move_speed;hard_to_tag"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"cyclone euls;eul's scepter of divinity"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"		"0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_mana_regen"		"0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movement_speed"	"0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cyclone_duration"		"2.5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range_tooltip"		"4000"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Cyclone
+	//=================================================================================================================
+	"item_not_cyclone"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"9203"									
+		"BaseClass" 					"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"			"item_cyclone"
+
+		"Model"							"models/props_winter/present.vmdl"
+		//what is this first effect for - effect if it's dropped?
+		"Effect" 						"particles/generic_gameplay/dropped_item.vpcf"
+
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"4000"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"7.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"ItemCost"						"150"
+		"ItemPermanent"					"0"
+		"ItemKillable"                  "0"
+		"ItemSellable"                  "0"
+		"ItemDroppable"                 "1"
+		
+		"ItemQuality"					"rare"
+		
+		"SideShop"						"1"
+		"SecretShop" 					"0"
+
+		"precache"
+		{
+		  "particle"  "particles/items_fx/cyclone.vpcf"
+		}
+		
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"TARGET"
+				"ModifierName"	"cyclone"
+			}
+			"FireSound"
+			{
+				"EffectName"	"DOTA_Item.Cyclone.Activate"
+				"Target"		"CASTER"
+			}		
+		}
+
+		"Modifiers"
+		{
+			"cyclone"
+			{
+				"IsBuff"		"1"
+				"IsHidden"		"0"
+				"IsPurgable" 	"1"
+				"Duration"		"%duration"
+
+				"OnCreated"
+				{
+
+				"RunScript"
+				{
+					"ScriptFile"	"items/cyclone.lua"
+					"Function"		"Spin"
+					"Angle"         "20"
+				}
+
+				"RunScript"
+				{
+					"ScriptFile"	"items/cyclone.lua"
+					"Function"		"TornadoHeight"
+				}
+
+					"AttachEffect"
+					{
+						"Target" 	"TARGET"
+						"EffectName"		"particles/items_fx/cyclone.vpcf"
+						"EffectAttachType" 	"follow_origin"
+						"EffectRadius"				"200"
+					}
+				}
+				"ThinkInterval"	"2"
+				"OnIntervalThink"
+				{
+					"AttachEffect"
+					{
+						"Target" 	"TARGET"
+						"EffectName"		"particles/items_fx/cyclone.vpcf"
+						"EffectAttachType" 	"follow_origin"
+						"EffectRadius"				"200"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE" 	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE" 	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED" 		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED" 		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED" 		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+					
+		}
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cost"					"150"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration_hero"					"3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration_unit"					"3"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cyclone_height"					"450"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cyclone_min_height"					"400"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cyclone_max_height"					"500"
+			}
+		}
+
+	}
+}

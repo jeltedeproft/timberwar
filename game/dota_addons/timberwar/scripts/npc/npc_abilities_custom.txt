@@ -1,0 +1,398 @@
+
+// Dota Abilities Override File
+"DOTAAbilities"
+{
+  "Version"   "1"
+
+  //=================================================================================================================
+  // Shredder: Chain
+  //================================================================================================================= 
+  "timber_chain"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "shredder_timber_chain"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityCastRange"      "4000"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_PURE"  
+    "FightRecapLevel"       "1"
+    "MaxLevel"                      "1"
+    
+    "precache"
+    {
+      "particle_folder"     "particles/units/heroes/hero_shredder"
+    }
+    
+    // Time   
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"       "1"
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "0"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "chain_radius"    "90"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "range"       "2250"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "damage_radius"   "225"
+      }
+      "04"
+      { 
+        "var_type"      "FIELD_INTEGER"
+        "speed"       "2000"
+      }
+      "05"
+      { 
+        "var_type"      "FIELD_INTEGER"
+        "damage"      "1000"
+      }
+    }
+  }
+
+  "ability_empty_1"
+  {
+     // General
+     //-------------------------------------------------------------------------------------------------------------
+     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+     "BaseClass"           "ability_datadriven"
+     "AbilityTextureName"            "rubick_empty1"
+  }
+   
+  "ability_empty_2"
+  {
+     // General
+     //-------------------------------------------------------------------------------------------------------------
+     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+     "BaseClass"           "ability_datadriven"
+     "AbilityTextureName"            "rubick_empty1"
+  }
+   
+  "ability_empty_3"
+  {
+     // General
+     //-------------------------------------------------------------------------------------------------------------
+     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+     "BaseClass"           "ability_datadriven"
+     "AbilityTextureName"            "rubick_empty1"
+  }
+  "ability_empty_4"
+  {
+     // General
+     //-------------------------------------------------------------------------------------------------------------
+     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+     "BaseClass"           "ability_datadriven"
+     "AbilityTextureName"            "rubick_empty1"
+  }
+  "ability_empty_5"
+  {
+     // General
+     //-------------------------------------------------------------------------------------------------------------
+     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+     "BaseClass"           "ability_datadriven"
+     "AbilityTextureName"            "rubick_empty1"
+  }
+
+  //=================================================================================================================
+  // Earthshaker: fissure custom
+  //=================================================================================================================
+   "fissure_custom"
+   {
+     // General
+     //-------------------------------------------------------------------------------------------------------------
+     "BaseClass"       "earthshaker_fissure"
+     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+     "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
+     "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_NO"
+     "FightRecapLevel"       "1"
+     "AbilityTextureName"      "earthshaker_fissure"
+     "MaxLevel"           "1"
+
+     // Casting
+     //-------------------------------------------------------------------------------------------------------------
+     "AbilityCastRange"        "1000"
+     "AbilityCastPoint"        "0.01"
+
+     // Time   
+     //-------------------------------------------------------------------------------------------------------------
+     "AbilityCooldown"       "5.0"
+     "AbilityDuration"       "1.0"
+
+     // Damage.
+     //-------------------------------------------------------------------------------------------------------------
+     "AbilityDamage"         "0 0 0 0"
+
+     // Cost
+     //-------------------------------------------------------------------------------------------------------------
+     "AbilityManaCost"       "0 0 0 0"   
+
+     // Special
+     //-------------------------------------------------------------------------------------------------------------
+     "AbilitySpecial"
+      {
+       "01"
+       {
+         "var_type"          "FIELD_INTEGER"
+         "fissure_range"       "1000"
+       }
+       "02"
+       {
+         "var_type"          "FIELD_FLOAT"
+         "fissure_duration"      "5.0"
+       }
+       "03"
+       {
+         "var_type"          "FIELD_INTEGER"
+         "fissure_radius"        "325"
+       }
+       "04"
+       {
+         "var_type"          "FIELD_FLOAT"
+         "stun_duration"       "0.8"
+       }
+      }
+    }
+
+  //=================================================================================================================
+  // Rattletrap: Power Cogs
+  //=================================================================================================================
+  "cogs_custom"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "rattletrap_power_cogs"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"            "1" 
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"        "0.3"
+    
+    // Time   
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"       "15.0"
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "0" //"50 60 70 80"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      { 
+        "var_type"      "FIELD_FLOAT"
+        "duration"      "5.0"
+      }
+      "02"
+      { 
+        "var_type"      "FIELD_INTEGER"
+        "drain_amount"    "0"
+      }
+      "03"
+      { 
+        "var_type"      "FIELD_INTEGER"
+        "attacks_to_destroy"  "1"
+      }
+      "04"
+      { 
+        "var_type"      "FIELD_INTEGER"
+        "push_length"   "250"
+      }
+      "05"
+      { 
+        "var_type"      "FIELD_FLOAT"
+        "push_duration"   "0.85"
+      }
+      "06"
+      { 
+        "var_type"      "FIELD_INTEGER"
+        "cogs_radius"     "200"
+      }
+      "07"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "trigger_distance"      "170"
+      }
+      "08"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "extra_pull_buffer"     "-10"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Furion: Sprout 
+  //=================================================================================================================
+  "sprout_custom"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"       "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
+    "FightRecapLevel"       "1"
+    "AbilityTextureName"      "furion_sprout"
+    "MaxLevel"            "1"
+  
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "4000"
+    "AbilityCastPoint"        "0.1"
+    "AbilityCooldown"       "4"
+    "AbilityManaCost"       "0"
+  
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "vision_range"      "800"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "duration"        "10.0"
+      }
+    }
+
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "hero/hero_furion.lua"
+        "Function"    "furion_sprout"
+        "target"       "POINT"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Ability: Vengefulspirit Nether Swap
+  //=================================================================================================================
+  "swap_custom"
+  {
+    "BaseClass"               "vengefulspirit_nether_swap"
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_BASIC"
+    "AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+    "MaxLevel"      "1"
+    
+    "AbilityCastRange"            "4000"
+    "AbilityCastPoint"            "0.001"
+    "AbilityCooldown"             "12.0"
+    "AbilityManaCost"             "0"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type" "FIELD_INTEGER"
+        "tooltip_range" "4000"
+      }
+      "02"
+      {
+        "var_type" "FIELD_FLOAT"
+        "nether_swap_cooldown_scepter" "2.0"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Templar Assassin: Refraction custom
+  //=================================================================================================================
+  "refraction_custom"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"  
+    "MaxLevel"            "1"
+    "AbilityTextureName" "templar_assassin_refraction"
+    
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"        "0.0"
+
+    // Time   
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"       "7.0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "0"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"      "particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf"
+    }
+    
+    "OnSpellStart"
+    { 
+      "ApplyModifier"
+      {
+        "ModifierName" "deflect_modifier"
+        "Target" "CASTER"
+      }
+      
+      "FireSound"
+      {
+        "EffectName"      "Hero_TemplarAssassin.Refraction"
+      }
+    }
+    
+    "Modifiers"
+    {
+      "deflect_modifier"
+      {
+        "Duration" "1.4"
+          "OnCreated"
+          {
+            "AttachEffect"
+            {
+            "Target" "CASTER"
+            "EffectName" "particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf"
+            "EffectAttachType" "follow_origin"
+            "EffectLifeDurationScale" "1"
+              "ControlPointEntities"
+              {
+              "CASTER"    "attach_origin" // Control Point 0
+              "CASTER"    "attach_origin" // Control Point 1
+              }
+            }
+          }
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL" "1"
+          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL"  "1"
+          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE" "1"
+        }     
+      }
+    }
+  }
+}
+
